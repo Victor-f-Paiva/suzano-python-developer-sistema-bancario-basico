@@ -26,7 +26,7 @@ while True:
                 deposit(value)
                 break
     elif choice == 2:
-        while withdrawal_counter <=3:
+        while withdrawal_counter <3:
             value = float(input('How much do you want to withdraw? R$'))
             if value < 0:
                 print('Choose a valid amount to deposit.')
@@ -38,6 +38,8 @@ while True:
                 cash_withdrawal(value)
                 withdrawal_counter += 1
                 break
+        if withdrawal_counter >= 3:
+            print('Maximum number of withdrawals has been exceeded')
     elif choice == 3:
         bank_statement()
     elif choice == 4:
