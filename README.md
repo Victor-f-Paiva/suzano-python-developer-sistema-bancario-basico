@@ -1,17 +1,19 @@
-# 🏦 Criando um Sistema Bancário Simples
+# 🏦 Criando um Sistema Bancário
 
-Este projeto implementa um **sistema bancário básico em Python**, contendo três operações essenciais: **depósito, saque e extrato**.  
+Este projeto implementa um **sistema bancário básico em Python**.  
 
-Na **versão 1 (V1)**, o sistema suporta apenas um usuário, portanto **não há autenticação de agência ou conta**.  
+- Na **versão 1 (V1)**, o sistema suporta apenas um usuário, portanto **não há autenticação de agência ou conta**. Contém três operações essenciais: **depósito, saque e extrato** e um limite de 3 saques;
+- Na **versão 2 (V2)**, adiciona limite diário de **10 operações por dia** e inclui data e hora no extrato;
 
 ---
 
-## 🚀 Desafio  
-Criar a primeira versão do sistema bancário, implementando as seguintes operações:  
+## 🚀 Desafio   
 
-- **Depósito**  
-- **Saque**  
-- **Extrato**  
+- **Criar função de Depósito**  
+- **Criar função de Saque**  
+- **Criar função de Extrato** 
+- **Limitar operaçoes diários**
+- **Incluir data e hora da transação** 
 
 ---
 
@@ -20,13 +22,16 @@ Criar a primeira versão do sistema bancário, implementando as seguintes opera�
 1️⃣ **Operações**:  
    - 🔹 **Depósitos**: todos os depósitos devem ser armazenados para exibição no extrato.  
    - 🔹 **Saques**:  
-     - **Limite de 3 saques diários**.  
+     - **Limite de 3 saques**.  
      - **Máximo de R$500,00 por saque**.  
      - ❌ Caso o saldo seja insuficiente, exibir a mensagem: `"Saldo insuficiente para saque!"`.  
    - 🔹 **Extrato**:  
      - Listar todos os depósitos e saques.  
+     - Exibir **data e hora** da transação.  
      - Exibir o **saldo atual** no final.  
      - Se não houver movimentações, exibir a mensagem: `"Não foram realizadas movimentações."`.  
+   - 🔹 **Transações**:  
+     - Listar todos os depósitos e saques.  
 
 2️⃣ **Formatação Monetária**:  
    - Os valores devem ser exibidos no formato **R$ XXX,XX**.  
