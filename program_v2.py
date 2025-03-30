@@ -4,6 +4,7 @@
 
 from system import *
 from time import sleep
+
 withdrawal_counter = 0
 
 while True:
@@ -31,6 +32,8 @@ while True:
             else:
                 deposit(value)
                 print('Deposit made successfully.')
+                print(f'Balance ===== {balance()}')
+
                 break
     elif choice == 2:
         while withdrawal_counter <3:
@@ -47,6 +50,7 @@ while True:
                 cash_withdrawal(value=value)
                 withdrawal_counter += 1
                 print('Successful withdrawal.')
+                print(f'Balance ===== {balance()}')
                 break
         if withdrawal_counter >= 3:
             print('Maximum number of withdrawals has been exceeded')
