@@ -1,11 +1,9 @@
-#1- Criar 3 operações (saque, deposito, extrato)
-    #1.1 -DEPOSITOS = deve armazenar todos os depósitos para exibir no extrato
-    #1.2-SAQUES = máx de 3 saques diarios com limites de 500 por saque
-    #   1.2.1- caso não tenha saldo- printar msg de impossibilidade de sacar por falta de saldo
-    # 1.3- EXTRATO = listar todos depósitos e saques. printar no fim o saldo atual.Se não houver movimentações exibir msg "Não foram realizadas movimentações."
-#2- OBS: printar o extrato com movimentações em reais com formato R$ xxx.xx
+#1- implementart limite de 10 transações por dia
+#2- printar msg se tentar saque após  atingir limite: "Você excedeu o numero de transações permitidas"
+# 3- exibir data e hora das transações no extrato 
 
-from system import deposit, bank_statement, menu_operations, cash_withdrawal
+from system import *
+from time import sleep
 withdrawal_counter = 0
 
 while True:
@@ -14,13 +12,21 @@ while True:
     choice = int(input())
 
     # processamento e saída de dados
+    if choice in (1,2) and len_operations() >= 10:
+        print('You have reached the daily transaction limit.')
+        sleep(2)
+        continue
+
     if choice not in [1,2,3,4]:
         print('Choose a valid option.')
+        sleep(2)
+
     if choice == 1:
         while True:
             value = float(input('How much do you want to deposit? R$'))
             if value <= 0:
                 print('Choose a valid amount to deposit.')
+                sleep(2)
                 continue
             else:
                 deposit(value)
@@ -30,9 +36,11 @@ while True:
             value = float(input('How much do you want to withdraw? R$'))
             if value < 0:
                 print('Choose a valid amount to deposit.')
+                sleep(2)
                 continue
             elif value > 500:
                 print('It is not possible to withdraw more than R$500.00')
+                sleep(2)
                 continue
             else:
                 cash_withdrawal(value)
@@ -40,6 +48,7 @@ while True:
                 break
         if withdrawal_counter >= 3:
             print('Maximum number of withdrawals has been exceeded')
+            sleep(2)
     elif choice == 3:
         bank_statement()
     elif choice == 4:

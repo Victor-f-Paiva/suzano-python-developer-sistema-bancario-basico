@@ -1,2 +1,2 @@
-from .operations import bank_statement, cash_withdrawal, deposit
+from .operations import *
 from .templates import menu_operations
