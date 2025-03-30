@@ -5,14 +5,14 @@ operations = []
 def len_operations():
     return len(operations)
 
-def deposit(value):
+def deposit(value, /): #forçando argumentos POSICIONAIS
     global operations
     date = datetime.now().strftime('%d/%m/%Y, %H:%M:%S')
     operations.append({'operation': 'DEPOSIT', 'value':value, 'type': 'CREDIT', 'time':date})
     return operations
 
 
-def cash_withdrawal(value):
+def cash_withdrawal(*, value): #forçando argumentos NOMEADOS
     global operations
     date = datetime.now().strftime('%d/%m/%Y, %H:%M:%S')
     operations.append({'operation': 'WITHDRAWAL', 'value':- value, 'type': 'DEBIT', 'time':date})
