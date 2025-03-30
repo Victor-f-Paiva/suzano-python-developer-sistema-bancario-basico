@@ -30,6 +30,7 @@ while True:
                 continue
             else:
                 deposit(value)
+                print('Deposit made successfully.')
                 break
     elif choice == 2:
         while withdrawal_counter <3:
@@ -43,8 +44,9 @@ while True:
                 sleep(2)
                 continue
             else:
-                cash_withdrawal(value)
+                cash_withdrawal(value=value)
                 withdrawal_counter += 1
+                print('Successful withdrawal.')
                 break
         if withdrawal_counter >= 3:
             print('Maximum number of withdrawals has been exceeded')
