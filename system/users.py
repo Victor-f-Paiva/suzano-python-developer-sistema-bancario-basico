@@ -11,8 +11,31 @@ def create_bank_account(cpf):
         if cpf == __registered_users[i]['cpf']:
             __registered_bank_account.append({'agency': AGENCY, 'account number': __next_account_num, 'name': __registered_users[i]['name']})
             __next_account_num += 1
+        else:
+            print('CPF already has an account...')
 
 def colect_user_data():
+    """
+    Prompts the user to input personal information required to register and create a bank account.
+
+    The function performs the following steps:
+        - Asks for a CPF number (only digits, no special characters).
+        - Checks whether the CPF is already registered.
+        - Collects full name and date of birth (day, month, year).
+        - Collects address information: street, number, neighborhood, city, and state.
+        - Formats birthday and address into readable strings.
+
+    Returns:
+        list: A list containing the user's data in the following order:
+            - name (str): The user's full name.
+            - bday_date (str): Formatted birth date as DD/MM/YYYY.
+            - cpf (int): The user's CPF (Brazilian taxpayer ID).
+            - address (str): Full formatted address.
+    
+    Notes:
+        - If the CPF is already registered in the global list `__registered_cpfs`, the function will notify and stop.
+        - The CPF input must be numeric; otherwise, it will re-prompt the user.
+    """
     while True:
         while True: #1
             try:
@@ -50,6 +73,12 @@ def listar_bank_acocunts():
         print(f' Agency: {__registered_bank_account[i]['agency']}, Account: {__registered_bank_account[i]['account number']} - User: {__registered_bank_account[i]['name']}')
         print(f'========================================================')
 
+def list_user_accounts():
+    print(f'========================================================')
+    for i,j in enumerate(__registered_users):
+        print(f'Name: {__registered_users[i]['name']} \nDate of birth: {__registered_users[i]['bday date']} \nCPF: {__registered_users[i]['cpf']} \nAddress: {__registered_users[i]['address']}')
+        print(f'========================================================')
+
 #testes
 if __name__ == '__main__':
     user_data1 = colect_user_data()
@@ -58,9 +87,9 @@ if __name__ == '__main__':
     create_user_account(user_data2)
     print()
     print()
-    cpf = int(input('CPF PARA CADASTRAR UMA CONTA'))
+    cpf = int(input('CPF PARA CADASTRAR UMA CONTA: '))
     create_bank_account(cpf)
-    cpf2 = int(input('CPF PARA CADASTRAR UMA CONTA'))
+    cpf2 = int(input('CPF PARA CADASTRAR UMA CONTA: '))
     create_bank_account(cpf2)
     print()
     print(__registered_users, 'USERS REGISTRADOS')
@@ -70,3 +99,4 @@ if __name__ == '__main__':
     print(__next_account_num, 'NUMERO DA PROXIMA CONTA')
     print()
     listar_bank_acocunts()
+    list_user_accounts()
