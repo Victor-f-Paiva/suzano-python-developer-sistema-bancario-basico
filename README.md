@@ -3,7 +3,7 @@
 Este projeto implementa um **sistema bancário básico em Python**.  
 
 - Na **versão 1 (V1)**, o sistema suporta apenas um usuário, portanto **não há autenticação de agência ou conta**. Contém três operações essenciais: **depósito, saque e extrato** e um limite de 3 saques;
-- Na **versão 2 (V2)**, adiciona limite diário de **10 operações por dia** e inclui data e hora no extrato;
+- Na **versão 2 (V2)**, cria duas novas funções (**cadastrar usuário e cadastrar conta bancária**)adiciona limite diário de **10 operações por dia** e inclui data e hora no extrato;
 
 ---
 
@@ -32,6 +32,8 @@ Este projeto implementa um **sistema bancário básico em Python**.
      - Se não houver movimentações, exibir a mensagem: `"Não foram realizadas movimentações."`.  
    - 🔹 **Transações**:  
      - Listar todos os depósitos e saques.  
+   - 🔹 **Cadastro de usuários**: Apenas um usuário por CPF
+   - 🔹 **Cadastro de conta corrente**: Cada conta só pode ter um usuário, mas cada usuário pode ter mais de uma conta e o número de agência será fixo `0001`.
 
 2️⃣ **Formatação Monetária**:  
    - Os valores devem ser exibidos no formato **R$ XXX,XX**.  
