@@ -10,24 +10,29 @@ withdrawal_counter = 0
 while True:
     #entrada de dados
     menu_operations()
-    choice = int(input())
+    try:
+        choice = int(input())
+        sleep(1)
+    except ValueError:
+        print('Choose a valid option...')
+        continue
 
     # processamento e saída de dados
     if choice in (1,2) and len_operations() >= 10:
         print('You have reached the daily transaction limit.')
-        sleep(2)
+        sleep(1)
         continue
 
-    if choice not in [1,2,3,4]:
-        print('Choose a valid option.')
-        sleep(2)
+    if choice <= 0 and choice >= 8:
+        print('Choose a valid option...')
+        sleep(1)
 
     if choice == 1:
         while True:
             value = float(input('How much do you want to deposit? R$'))
             if value <= 0:
                 print('Choose a valid amount to deposit.')
-                sleep(2)
+                sleep(1)
                 continue
             else:
                 deposit(value)
@@ -40,11 +45,11 @@ while True:
             value = float(input('How much do you want to withdraw? R$'))
             if value < 0:
                 print('Choose a valid amount to deposit.')
-                sleep(2)
+                sleep(1)
                 continue
             elif value > 500:
                 print('It is not possible to withdraw more than R$500.00')
-                sleep(2)
+                sleep(1)
                 continue
             else:
                 cash_withdrawal(value=value)
@@ -54,10 +59,29 @@ while True:
                 break
         if withdrawal_counter >= 3:
             print('Maximum number of withdrawals has been exceeded')
-            sleep(2)
+            sleep(1)
     elif choice == 3:
         bank_statement()
     elif choice == 4:
+        try:
+            data = colect_user_data()
+            create_user_account(data)
+        except TypeError:
+            print('CPF is already registered...')
+    elif choice == 5:
+        while True:
+            try:
+                cpf = int(input('Insert your CPF (whithout especial caracters (.-)): '))
+                break
+            except ValueError:
+                print('Insert a valid CPF..')
+                continue
+        create_bank_account(cpf)
+    elif choice == 6:
+        listar_bank_acocunts()
+    elif choice == 7:
+        list_user_accounts()
+    elif choice == 8:
         break
 
 # saida do programa
