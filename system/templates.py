@@ -7,7 +7,9 @@ def menu_operations():
     |[3] BANK STATEMENT         |
     |[4] CREATE A USER          |
     |[5] CREATE A BANK ACCOUNT  |
-    |[6] EXIT                   |
+    |[6] LIST BANK ACCOUNTS     |
+    |[7] LIST USER ACCOUNTS     |
+    |[8] EXIT                   |
     +---------------------------+      
     ''')
 
