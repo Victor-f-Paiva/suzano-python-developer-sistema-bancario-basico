@@ -1,16 +1,16 @@
-registered_cpfs = []
-registered_users = []
-registered_bank_account = []
-next_account_num = 1
+__registered_cpfs = []
+__registered_users = []
+__registered_bank_account = []
+__next_account_num = 1
 AGENCY = '0001'
 
 def create_bank_account(cpf):
-    global registered_bank_account
-    global next_account_num
-    for i, key in enumerate(registered_users):
-        if cpf == registered_users[i]['cpf']:
-            registered_bank_account.append({'agency': AGENCY, 'account number': next_account_num, 'name': registered_users[i]['name']})
-            next_account_num += 1
+    global __registered_bank_account
+    global __next_account_num
+    for i, key in enumerate(__registered_users):
+        if cpf == __registered_users[i]['cpf']:
+            __registered_bank_account.append({'agency': AGENCY, 'account number': __next_account_num, 'name': __registered_users[i]['name']})
+            __next_account_num += 1
 
 def colect_user_data():
     while True:
@@ -21,11 +21,11 @@ def colect_user_data():
             except ValueError:
                 print('Insert a valid CPF..')
                 continue #1
-        if cpf in registered_cpfs:
+        if cpf in __registered_cpfs:
             print('CPF already registered.')
             break
         else:
-            registered_cpfs.append(cpf)
+            __registered_cpfs.append(cpf)
         name = input('Type your full name: ').strip().title()
         bday_day = input('Insert your birthday day: ').strip()
         bday_month = input('Insert your birthday month: ').strip()
@@ -40,14 +40,14 @@ def colect_user_data():
         return [name, bday_date, cpf, address]
 
 def create_user_account(user_data_list):
-    global registered_users
-    registered_users.append({'name': user_data_list[0], 'bday date': user_data_list[1], 'cpf': user_data_list[2], 'address':user_data_list[3]})
-    return registered_users
+    global __registered_users
+    __registered_users.append({'name': user_data_list[0], 'bday date': user_data_list[1], 'cpf': user_data_list[2], 'address':user_data_list[3]})
+    return __registered_users
 
 def listar_bank_acocunts():
     print(f'========================================================')
-    for i,j in enumerate(registered_bank_account):
-        print(f' Agency: {registered_bank_account[i]['agency']}, Account: {registered_bank_account[i]['account number']} - User: {registered_bank_account[i]['name']}')
+    for i,j in enumerate(__registered_bank_account):
+        print(f' Agency: {__registered_bank_account[i]['agency']}, Account: {__registered_bank_account[i]['account number']} - User: {__registered_bank_account[i]['name']}')
         print(f'========================================================')
 
 #testes
@@ -63,10 +63,10 @@ if __name__ == '__main__':
     cpf2 = int(input('CPF PARA CADASTRAR UMA CONTA'))
     create_bank_account(cpf2)
     print()
-    print(registered_users, 'USERS REGISTRADOS')
+    print(__registered_users, 'USERS REGISTRADOS')
     print()
-    print(registered_bank_account, 'CONTAS REGISTRADAS')
+    print(__registered_bank_account, 'CONTAS REGISTRADAS')
     print()
-    print(next_account_num, 'NUMERO DA PROXIMA CONTA')
+    print(__next_account_num, 'NUMERO DA PROXIMA CONTA')
     print()
     listar_bank_acocunts()
