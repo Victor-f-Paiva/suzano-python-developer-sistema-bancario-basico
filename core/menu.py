@@ -15,47 +15,52 @@ def show_menu():
         print("5. Balance")
         print("0. Exit")
 
-        option = input("\nChoose an option: ")
+        try:
+            option = input("\nChoose an option: ")
 
 
-        if option == "1":
-            name = input("Customer name: ")
-            cpf = input("CPF (numbers only): ")
-            register_client(name, cpf)
+            if option == "1":
+                name = input("Customer name: ")
+                cpf = input("CPF (numbers only): ")
+                register_client(name, cpf)
 
-        elif option == "2":
-            cpf = input("Enter the customer's CPF: ")
-            create_account(cpf)
+            elif option == "2":
+                cpf = input("Enter the customer's CPF: ")
+                create_account(cpf)
 
-        elif option == "3":
-            number = int(input("Account number: "))
-            account = fetch_account_by_number(number)
-            if account:
-                amount = float(input("Deposit amount: "))
-                make_deposit(account, amount)
+            elif option == "3":
+                number = int(input("Account number: "))
+                account = fetch_account_by_number(number)
+                if account:
+                    amount = float(input("Deposit amount: "))
+                    make_deposit(account, amount)
+                else:
+                    print("Account not found.")
+
+            elif option == "4":
+                number = int(input("Account number: "))
+                account = fetch_account_by_number(number)
+                if account:
+                    amount = float(input("Withdrawal amount: "))
+                    make_withdraw(account, amount)
+                else:
+                    print("Account not found.")
+
+            elif option == "5":
+                number = int(input("Account number: "))
+                account = fetch_account_by_number(number)
+                if account:
+                    show_balance(account)
+                else:
+                    print("Account not found.")
+
+            elif option == "0":
+                print("Shutting down the system.")
+                break
+
             else:
-                print("Account not found.")
-
-        elif option == "4":
-            number = int(input("Account number: "))
-            account = fetch_account_by_number(number)
-            if account:
-                amount = float(input("Withdrawal amount: "))
-                make_withdraw(account, amount)
-            else:
-                print("Account not found.")
-
-        elif option == "5":
-            number = int(input("Account number: "))
-            account = fetch_account_by_number(number)
-            if account:
-                show_balance(account)
-            else:
-                print("Account not found.")
-
-        elif option == "0":
-            print("Shutting down the system.")
-            break
-
-        else:
-            print("Invalid option. Try again.")
+                print("Invalid option. Try again.")
+        except ValueError:
+            print("Invalid entry. Please try again.")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
