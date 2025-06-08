@@ -67,16 +67,16 @@ suzano-python-developer-sistema-bancario-basico/
 
 1. Clone the repository:
 
-   ```bash
+```bash
    git clone https://github.com/Victor-f-Paiva/suzano-python-developer-sistema-bancario-basico.git
    cd suzano-python-developer-sistema-bancario-basico
-````
+```
 
 2. Run the main menu:
 
-   ```bash
+```bash
    python main.py
-   ```
+```
 
 ## 💡 Technologies Used
 
