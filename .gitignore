@@ -14,8 +14,10 @@ __pycache__/
 # virtual enviorements
 venv/
 env/
+venv-bank-system/
 .venv/
 .env/
+.venv-bank-system/
 
 # VSCODE config files
 .vscode/
