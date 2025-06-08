@@ -31,5 +31,5 @@ def show_balance(account):
         return
     
     for transaction in account.transactions:
-        print(f"\n{transaction.date} - {transaction.type}: R${transaction.amount:.2f}")
+        print(f"{transaction.date} - {transaction.type}: R${transaction.amount:.2f}")
     print(f"\nCurrent balance: R${account.balance}")

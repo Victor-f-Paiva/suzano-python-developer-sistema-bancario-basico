@@ -4,4 +4,4 @@ class Transaction:
     def __init__(self, type, amount):
         self.type = type
         self.amount = amount
-        self.date = datetime.now()
+        self.date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
