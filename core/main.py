@@ -1,0 +1,5 @@
+# Ponto de entrada da aplicação
+from core.menu import show_menu
+
+if __name__ == "__main__":
+    show_menu()
