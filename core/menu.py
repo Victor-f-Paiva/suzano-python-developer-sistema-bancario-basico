@@ -15,7 +15,7 @@ def show_menu():
         print("5. Balance")
         print("0. Exit")
 
-        option = input("Choose an option: ")
+        option = input("\nChoose an option: ")
 
 
         if option == "1":

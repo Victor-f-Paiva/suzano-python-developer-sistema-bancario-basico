@@ -11,7 +11,7 @@ def make_deposit(account, amount):
     print("Successful deposit")
 
 def make_withdraw(account, amount):
-    if account.withdrawals >=3:
+    if len(account.withdrawals) >=3:
         print("Daily withdrawal limit reached")
         return
     if amount > 500:
@@ -31,5 +31,5 @@ def show_balance(account):
         return
     
     for transaction in account.transactions:
-        print(f"{transaction.date} - {transaction.type}: R${transaction.amount:.2f}")
+        print(f"\n{transaction.date} - {transaction.type}: R${transaction.amount:.2f}")
     print(f"\nCurrent balance: R${account.balance}")
