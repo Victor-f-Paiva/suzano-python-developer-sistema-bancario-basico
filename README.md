@@ -75,7 +75,7 @@ suzano-python-developer-sistema-bancario-basico/
 2. Run the main menu:
 
 ```bash
-   python main.py
+   main.py
 ```
 
 ## 💡 Technologies Used
